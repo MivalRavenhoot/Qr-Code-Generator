@@ -1,7 +1,7 @@
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
 
 async def start(update, context):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Welcome to the QR generator bot!")
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Welcome to the QR generator bot!\nSend /help to see the usage")
 
 async def help(update, context):
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Usage:\nwrite the string you want to convert into a QR code image")
