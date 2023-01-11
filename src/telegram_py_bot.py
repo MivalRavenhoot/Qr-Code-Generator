@@ -10,12 +10,13 @@ async def qr(update, context):
     await context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
 
 if __name__ == '__main__':
-    token = open("bot_token.txt", "r").readline()
-    bot = ApplicationBuilder().token(token).build()
+    with open("bot_token.txt", "r") as token:
+        bot = ApplicationBuilder().token(token.readline()).build()
+
     message_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), qr)
-    
+
     bot.add_handler(CommandHandler('start', start))
     bot.add_handler(CommandHandler('help', help))
     bot.add_handler(message_handler)
-    
+
     bot.run_polling()
