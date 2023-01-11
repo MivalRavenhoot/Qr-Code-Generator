@@ -10,7 +10,7 @@ async def qr(update, context):
     await context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
 
 if __name__ == '__main__':
-    with open("bot_token.txt", "r") as token:
+    with open("bot_token.txt", "r", encoding="utf8") as token:
         bot = ApplicationBuilder().token(token.readline()).build()
 
     message_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), qr)
