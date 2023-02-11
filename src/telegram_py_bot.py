@@ -9,7 +9,7 @@ async def help(update, context):
 
 async def qr(update, context):
     QR(update.message.text)
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('url_qrcode.png', 'rb'))
+    await context.bot.send_photo(chat_id=update.effective_chat.id, with open('url_qrcode.png', 'rb') as photo)
 
 if __name__ == '__main__':
     with open("bot_token.txt", "r", encoding="utf8") as token:
