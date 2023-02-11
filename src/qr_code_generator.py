@@ -13,3 +13,4 @@ def QR(text):
 
     img = qr.make_image(fill_color="black", back_color="white")
     img.save("url_qrcode.png")
+    
