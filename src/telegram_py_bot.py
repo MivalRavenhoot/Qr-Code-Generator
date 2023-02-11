@@ -22,4 +22,3 @@ if __name__ == '__main__':
     bot.add_handler(message_handler)
 
     bot.run_polling()
-    
