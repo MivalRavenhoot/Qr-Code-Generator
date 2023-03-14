@@ -27,6 +27,9 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           if [ -f requirements_dev.txt ]; then pip install -r requirements_dev.txt; fi
+      - name: Set Telegram token as environment variable
+        run: |
+          echo "export TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}" >> $GITHUB_ENV
       - name: Create bot_token.txt file
         run: |
           echo ${{ secrets.TELEGRAM_TOKEN }} > bot_token.txt
