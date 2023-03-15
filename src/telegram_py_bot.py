@@ -1,7 +1,7 @@
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
 import qrcode
 
-# Qrcode generation function in png format
+# qr code image generation function
 def QR(text):
     qr = qrcode.QRCode(
         version=1,
@@ -14,7 +14,7 @@ def QR(text):
     qr.make(fit=True)
 
     img = qr.make_image(fill_color="black", back_color="white")
-    img.save("url_qrcode.png")
+    img.save("qrcode.png")
 
 #bot telegram basic commands
 async def start(update, context):
@@ -26,7 +26,7 @@ async def help(update, context):
 async def qr_generator(update, context):
     QR(update.message.text)
 
-    with open('url_qrcode.png', 'rb') as qr_image:
+    with open('qrcode.png', 'rb') as qr_image:
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=qr_image)
 
 #telegram bot start and token validation
