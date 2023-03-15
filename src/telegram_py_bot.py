@@ -25,6 +25,7 @@ async def help(update, context):
 
 async def qr_generator(update, context):
     QR(update.message.text)
+
     with open('url_qrcode.png', 'rb') as qr_image:
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=qr_image)
 
@@ -39,5 +40,4 @@ if __name__ == '__main__':
     bot.add_handler(CommandHandler('start', start))
     bot.add_handler(CommandHandler('help', help))
     bot.add_handler(message_handler)
-
     bot.run_polling()
