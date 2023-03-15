@@ -16,7 +16,6 @@ def QR(text):
     img = qr.make_image(fill_color="black", back_color="white")
     img.save("url_qrcode.png")
 
-
 #bot telegram basic commands
 async def start(update, context):
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Welcome to the QR generator bot!\nSend /help to see the usage")
