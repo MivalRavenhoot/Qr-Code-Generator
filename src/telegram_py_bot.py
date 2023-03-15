@@ -25,7 +25,8 @@ async def help(update, context):
 
 async def qr_generator(update, context):
     QR(update.message.text)
-    await context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('url_qrcode.png', 'rb'))
+    with open('url_qrcode.png', 'rb') as qr_image:
+        await context.bot.send_photo(chat_id=update.effective_chat.id, photo=qr_image)
 
 #telegram bot start and token validation
 if __name__ == '__main__':
