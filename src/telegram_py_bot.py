@@ -1,5 +1,6 @@
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
 import qrcode
+
 # Qrcode generation function in png format
 def QR(text):
     qr = qrcode.QRCode(
