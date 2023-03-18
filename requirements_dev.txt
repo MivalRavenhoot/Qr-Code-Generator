@@ -1,6 +1,10 @@
-pytest
-pytest-mock
-pytest-cov
+Pillow
 pylint
+pytest
+pytest-asyncio
+pytest-cov
+pytest-mock
 python-telegram-bot
+pytest-tornasync
+pyzbar
 qrcode
