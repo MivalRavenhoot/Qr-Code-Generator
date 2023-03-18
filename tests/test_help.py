@@ -3,7 +3,7 @@ from unittest.mock import AsyncMock, Mock
 import pytest
 
 @pytest.mark.asyncio
-async def test_start():
+async def test_help():
     update = Mock()
     context = Mock()
     context.bot.send_message = AsyncMock()
