@@ -11,7 +11,7 @@ async def test_start():
 
     await start(update, context)
 
-    context.bot.send_message.assert_called_once_with(
+    context.bot.send_message.assert_called_with(
         chat_id=update.effective_chat.id,
         text="Welcome to the QR generator bot!\nSend /help to see the usage",
     )

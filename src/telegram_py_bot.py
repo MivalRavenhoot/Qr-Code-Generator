@@ -24,9 +24,14 @@ async def start(update, context):
 async def help(update, context):
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Usage:\nwrite the string you want to convert into a QR code image")
 
+# telegram bot user string printer
+async def printing(update, context, text):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=f'You requested the following string: "{text}"\n\nThis is the generated QR code image:')
+
 # telegram bot qr code image sender function
 async def qr_generator(update, context):
     QR(update.message.text)
+    await printing(update, context, update.message.text)
 
     with open('qrcode.png', 'rb') as qr_image:
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=qr_image)
@@ -43,4 +48,3 @@ if __name__ == '__main__':
     bot.add_handler(CommandHandler('help', help))
     bot.add_handler(message_handler)
     bot.run_polling()
-    
