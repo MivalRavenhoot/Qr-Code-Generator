@@ -9,7 +9,7 @@ def test_qr():
     QR(test_url)
 
     # test qrcode png image generation
-    assert os.path.exists('qrcode.png') == True
+    assert os.path.isfile('qrcode.png')
 
     # test correct qrcode generation
     decocdeQR = decode(Image.open('qrcode.png'))
