@@ -7,7 +7,6 @@ async def test_start():
     update = Mock()
     context = Mock()
     context.bot.send_message = AsyncMock()
-    context.bot.send_message.return_value = "some value"
 
     await start(update, context)
 
