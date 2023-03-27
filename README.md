@@ -18,7 +18,7 @@ To run this bot on your local machine, you will need to have Python 3 installed 
 To install these libraries, you can use pip:
 
 Copy code
-```pip install telegram qrcode``` 
+```pip install telegram``` and ```pip install qrcode``` .
 You will also need to create a file named ``` bot_token.txt ``` in the same directory as the code, containing your Telegram Bot API token.
 
 ## Code
