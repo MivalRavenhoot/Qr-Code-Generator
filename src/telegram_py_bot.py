@@ -1,35 +1,20 @@
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
-import qrcode
-
-# qr code image generation function
-def QR(text):
-    qr = qrcode.QRCode(
-        version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
-        box_size=15,
-        border=4,
-    )
-
-    qr.add_data(text)
-    qr.make(fit=True)
-
-    img = qr.make_image(fill_color="black", back_color="white")
-    img.save("qrcode.png")
+from QR import QR
 
 # telegram bot start command handler
-async def start(update, context):
+async def start(update, context) -> None:
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Welcome to the QR generator bot!\nSend /help to see the usage")
 
 # telegram bot help command handler
-async def help(update, context):
+async def help(update, context) -> None:
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Usage:\nwrite the string you want to convert into a QR code image")
 
 # telegram bot user string printer
-async def printing(update, context, text):
+async def printing(update, context, text) -> None:
     await context.bot.send_message(chat_id=update.effective_chat.id, text=f'You requested the following string: "{text}"\n\nThis is the generated QR code image:')
 
 # telegram bot qr code image sender function
-async def qr_generator(update, context):
+async def qr_generator(update, context) -> None:
     QR(update.message.text)
     await printing(update, context, update.message.text)
 
